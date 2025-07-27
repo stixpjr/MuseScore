@@ -112,7 +112,7 @@ const std::vector <ButtonBoxModel::ButtonRole>& ButtonBoxModel::chooseButtonLayo
     } else {
 #if defined (Q_OS_MACOS)
         index = 1;
-#elif defined (Q_OS_LINUX) || defined (Q_OS_UNIX) || defined(Q_OS_FREEBSD)
+#elif defined (Q_OS_LINUX) || defined (Q_OS_UNIX) || defined(Q_OS_FREEBSD) || defined(Q_OS_NETBSD)
         index = 2;
 #endif
     }

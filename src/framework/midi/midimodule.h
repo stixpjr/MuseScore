@@ -28,10 +28,7 @@
 
 namespace muse::midi {
 class MidiConfiguration;
-#if defined(Q_OS_LINUX)
-class AlsaMidiOutPort;
-class AlsaMidiInPort;
-#elif defined(Q_OS_FREEBSD)
+#if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD) || defined(Q_OS_NETBSD)
 class AlsaMidiOutPort;
 class AlsaMidiInPort;
 #elif defined(Q_OS_WIN)
@@ -57,7 +54,7 @@ public:
 private:
     std::shared_ptr<MidiConfiguration> m_configuration;
 
-    #if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD)
+    #if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD) || defined(Q_OS_NETBSD)
     std::shared_ptr<AlsaMidiOutPort> m_midiOutPort;
     std::shared_ptr<AlsaMidiInPort> m_midiInPort;
 

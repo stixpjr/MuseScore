@@ -1,6 +1,6 @@
 include(GetPlatformInfo)
 
-if(NOT(OS_IS_LIN OR OS_IS_FBSD))
+if(NOT(OS_IS_LIN OR OS_IS_FBSD OR OS_ID_NBSD))
     return()
 endif()
 

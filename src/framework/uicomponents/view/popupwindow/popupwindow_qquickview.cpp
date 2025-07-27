@@ -91,7 +91,7 @@ void PopupWindow_QQuickView::init(QQmlEngine* engine, bool isDialogMode, bool is
     // popup
     else {
         Qt::WindowFlags flags(
-#if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD)
+#if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD) || defined(Q_OS_NETBSD)
             Qt::Popup // Popups can't be Qt::Tool on Linux Wayland, or they can't be relatvely positioned.
 #else
             Qt::Tool

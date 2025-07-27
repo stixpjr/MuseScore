@@ -47,6 +47,11 @@ void muse::runtime::setThreadName(const std::string& name)
     if (pthread_setname_np(pthread_self(), truncated_name.c_str()) > 0) {
         LOGW() << "Couldn't set thread name through pthreads";
     }
+#elif defined(Q_OS_NETBSD)
+    DO_ASSERT(name.length() <= PTHREAD_MAX_NAMELEN_NP);
+    if (pthread_setname_np(pthread_self(), name.c_str(), nullptr) != 0) {
+        LOGW() << "Couldn't set thread name through pthreads";
+    }
 #elif defined(Q_OS_MACOS)
     pthread_setname_np(name.c_str());
 #endif

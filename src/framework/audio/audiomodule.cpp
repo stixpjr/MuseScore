@@ -60,13 +60,10 @@ using namespace muse::audio::fx;
 #include "internal/platform/jack/jackaudiodriver.h"
 #endif
 
-#ifdef Q_OS_LINUX
+#if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD) || defined(Q_OS_NETBSD)
 #include "internal/platform/lin/linuxaudiodriver.h"
 #endif
 
-#ifdef Q_OS_FREEBSD
-#include "internal/platform/lin/linuxaudiodriver.h"
-#endif
 #ifdef Q_OS_WIN
 //#include "internal/platform/win/winmmdriver.h"
 //#include "internal/platform/win/wincoreaudiodriver.h"
@@ -125,7 +122,7 @@ void AudioModule::registerExports()
     m_audioDriver = std::shared_ptr<IAudioDriver>(new JackAudioDriver());
 #else
 
-#if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD)
+#if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD) || defined(Q_OS_NETBSD)
     m_audioDriver = std::shared_ptr<IAudioDriver>(new LinuxAudioDriver());
 #endif
 

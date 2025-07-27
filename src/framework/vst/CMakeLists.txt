@@ -80,7 +80,7 @@ set(MODULE_SRC
     ${CMAKE_CURRENT_LIST_DIR}/view/vstview.h
     )
 
-if(OS_IS_LIN OR OS_IS_FBSD)
+if(OS_IS_LIN OR OS_IS_FBSD OR OS_ID_NBSD)
     set(MODULE_SRC
         ${MODULE_SRC}
         ${CMAKE_CURRENT_LIST_DIR}/internal/platform/linux/runloop.cpp

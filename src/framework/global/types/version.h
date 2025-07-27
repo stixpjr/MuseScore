@@ -26,6 +26,10 @@
 
 #include "types/string.h"
 
+// Undefine major/minor macros that are defined on some OSes.
+#undef major
+#undef minor
+
 namespace muse {
 class Version
 {

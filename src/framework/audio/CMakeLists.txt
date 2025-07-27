@@ -37,7 +37,7 @@ if (OS_IS_WIN)
         ${CMAKE_CURRENT_LIST_DIR}/internal/platform/win/audiodeviceslistener.cpp
         ${CMAKE_CURRENT_LIST_DIR}/internal/platform/win/audiodeviceslistener.h
     )
-elseif(OS_IS_LIN OR OS_IS_FBSD)
+elseif(OS_IS_LIN OR OS_IS_FBSD OR OS_IS_NBSD)
     if (MUSE_MODULE_AUDIO_JACK)
         set(DRIVER_SRC
             ${CMAKE_CURRENT_LIST_DIR}/internal/platform/jack/jackaudiodriver.cpp

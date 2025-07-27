@@ -49,14 +49,7 @@ static const std::vector<GraphicsApi > ALLOWED_APIS = {
 };
 #endif
 
-#ifdef Q_OS_LINUX
-static const std::vector<GraphicsApi > ALLOWED_APIS = {
-    GraphicsApi::OpenGL,
-    GraphicsApi::Software
-};
-#endif
-
-#ifdef Q_OS_FREEBSD
+#if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD) || defined(Q_OS_NETBSD)
 static const std::vector<GraphicsApi > ALLOWED_APIS = {
     GraphicsApi::OpenGL,
     GraphicsApi::Software
